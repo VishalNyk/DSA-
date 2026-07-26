@@ -1,6 +1,8 @@
 <h2><a href="https://leetcode.com/problems/h-index">274. H-Index</a></h2><h3>Medium</h3><hr><p>Given an array of integers <code>citations</code> where <code>citations[i]</code> is the number of citations a researcher received for their <code>i<sup>th</sup></code> paper, return <em>the researcher&#39;s h-index</em>.</p>
 
-<p>According to the <a href="https://en.wikipedia.org/wiki/H-index" target="_blank">definition of h-index on Wikipedia</a>: The h-index is defined as the maximum value of <code>h</code> such that the given researcher has published at least <code>h</code> papers that have each been cited at least <code>h</code> times.</p>
+<p>According to the <a href="https://en.wikipedia.org/wiki/H-index" target="_blank">definition of h-index on Wikipedia</a>: The h-index is defined as the maximum value of <code>h</code> such that the given researcher has published at least <code>h</code> papers that have each been cited at least <code>h</code> times.
+Main logic is to build a buckets array with N+1 size, traverse input array for any value>=N, assign buckets[N]+=1 else buckets[i]+=1
+Then from the formed buckets, iterate backwards, at each step do rp+bucket[h] (assign rp initially =0), then all rp values >=index of h while travelling backward, get the maximum one</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
