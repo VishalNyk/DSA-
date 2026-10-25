@@ -4,9 +4,13 @@ class Solution:
         n=len(nums)
         ans=[]
 
-        for i in range(n-2):
+         for i in range(n-2):
+        #     This is a mathematical optimization. Because the array is already sorted in ascending order, 
+        #     if your current anchor number nums[i] is strictly greater than zero, every single number remaining to its right will also be positive.
+        #     hence adding +ve nos. will never yield 0
             if(nums[i]>0):
                 break
+            # Since nums is sorted, hence high chance same items can pollute the actual triplet
             if(i>0 and nums[i]==nums[i-1]):
                 continue
             
