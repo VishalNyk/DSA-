@@ -1,0 +1,22 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        if(len(s)==1):
+            return False
+        deq=collections.deque()
+        openers,closers=['(','{','['],[')','}',']']
+        
+        for char in s:
+            if(len(deq)==0 and char in closers):
+                return False
+            if(char in openers):
+                deq.appendleft(char)
+            if(len(deq)!=0 and char in closers):
+                
+                if(deq[0]!=openers[closers.index(char)]):
+                    return False
+                else:
+                    deq.popleft()
+        return len(deq)==0
+        
+
+        
