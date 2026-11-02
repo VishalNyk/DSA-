@@ -8,7 +8,7 @@ class Solution:
         for value,symbol in value_symbol:
             if(num==0):
                 break
-            while(num>value):
+            while(num>=value):
                 res.append(symbol)
                 num-=value
         return "".join(res)
