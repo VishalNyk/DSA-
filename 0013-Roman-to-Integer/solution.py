@@ -1,11 +1,15 @@
 class Solution:
-    def romanToInt(self, s: str) -> int:
-        convertor={'I':1,'V':5,'X':10,'L':50,'C':100,'D':500,'M':1000}
-        total=0
-        for i in range(len(s)):
-            if(i+1<len(s) and convertor[s[i]]<convertor[s[i+1]]):
-                total-=convertor[s[i]]
+    def intToRoman(self, num: int) -> str:
+        value_symbol=[(1000,'M'),(900,'CM'),(500,'D'),(400,'CD'),
+                      (100,'C'),(90,'XC'),(50,'L'),(40,'XL'),
+                      (10,'C'),(9,'IX'),(5,'V'),(4,'IV'),
+                      (1,'I')]
+        res=[]
+        for value,symbol in value_symbol:
+            if(num==0):
+                break
             else:
-                total+=convertor[s[i]]
-        return total
-        
+                while(num>value):
+                    res.append(symbol)
+                    num-=value
+        return "".join(res)
